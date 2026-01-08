@@ -22,7 +22,7 @@ class Vector:
     def normalized(self):
 
         m = max(self.x, self.y, self.z)
-        return [self.x / m, self.y / m, self.z / m]
+        return Vector(self.x / m, self.y / m, self.z / m)
 
     def __add__(self, other):
 
