@@ -90,7 +90,7 @@ class Matrix:
         if self.rows != other.rows or self.cols != other.cols:
             raise ValueError("Matrices must have same size")
 
-        result = [[self.data[r][c] + other.data[r][c] for c in range(self.cols)] for r in range(self.rows)]
+        result = Matrix([[self.data[r][c] + other.data[r][c] for c in range(self.cols)] for r in range(self.rows)])
         return result
 
     def __sub__(self, other):
@@ -98,16 +98,16 @@ class Matrix:
         if self.rows != other.rows or self.cols != other.cols:
             raise ValueError("Matrices must have same size")
 
-        result = [[self.data[r][c] + other.data[r][c] for c in range(self.cols)] for r in range(self.rows)]
+        result = Matrix([[self.data[r][c] + other.data[r][c] for c in range(self.cols)] for r in range(self.rows)])
         return result
 
     def __mul__(self, other):
 
         if isinstance(other, (int, float)):
-            result = [[self.data[r][c] * other for r in range(self.rows)] for c in range(self.cols)]
+            result = Matrix([[self.data[r][c] * other for r in range(self.rows)] for c in range(self.cols)])
 
         elif isinstance(other, Matrix) and (self.rows != other.rows or self.cols != other.cols):
-            result = [[self.data[r][c] * other.data[r][c] for c in range(self.cols)] for r in range(self.rows)]
+            result = Matrix([[self.data[r][c] * other.data[r][c] for c in range(self.cols)] for r in range(self.rows)])
 
         else:
             raise ValueError("Unsupported operand type(s) for *")
